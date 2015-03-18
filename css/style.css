@@ -15,9 +15,11 @@ body {
 
 
 .codepen {
-  width: 150px;
+  height: 50px;
+  position: relative;
+  to: 13px;
 }
 
 .github {
-  width: 150px;
+  width: 40px;
 }
