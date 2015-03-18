@@ -12,3 +12,14 @@ body {
   padding: 20px;
 
 }
+
+
+.codepen {
+  background: url(/images/codepen-text-logo.png);
+  width: 200px;
+}
+
+.github {
+  background: url(/images/github-logo.png);
+  width: 200px;
+}
