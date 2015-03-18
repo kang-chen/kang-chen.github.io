@@ -15,11 +15,9 @@ body {
 
 
 .codepen {
-  background: url(/images/codepen-text-logo.png);
-  width: 200px;
+  width: 150px;
 }
 
 .github {
-  background: url(/images/github-logo.png);
-  width: 200px;
+  width: 150px;
 }
