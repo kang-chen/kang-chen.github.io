@@ -1,0 +1,5 @@
+gems:
+  - jekyll-gallery-generator
+
+gallery:
+  sort_field: "orientation"
