@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/kanghongchen/jekyll-gallery-generator.git
-  revision: 5545adba2b52a2b74d1620f6533a8365290a6ade
+  revision: c03896ee46c397c782d15fd71a844dcb975a734d
   branch: master
   specs:
     jekyll-gallery-generator (0.0.5)
