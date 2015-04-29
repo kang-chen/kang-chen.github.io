@@ -1,5 +1,2 @@
 gems:
   - jekyll-gallery-generator
-
-gallery:
-  sort_field: "date_time"
