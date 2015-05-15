@@ -4,7 +4,10 @@ title: ReactJS - Change the value of a property of an external component
 published: true
 ---
 
-I want to change the value of a component property of an external component.
+I want to change the property value of a component that has been created. From outside itself.
+
+As all answers on Stackoverflow seemed to involve too much complexity.
+This is a simple way of trying to explain it.
 
 My external component
 
@@ -27,7 +30,6 @@ var ExternalComponent = React.createClass({
 )};
 
 {% endhighlight %}
-
 
 My current component
 
