@@ -1,2 +1,8 @@
-gems:
-  - jekyll-gallery-generator
+permalink: /:title.html
+published: true
+# gallery:
+#   thumbnail_size:
+#     x: 100
+#     y: 100
+# gems:
+#   - jekyll-gallery-generator
