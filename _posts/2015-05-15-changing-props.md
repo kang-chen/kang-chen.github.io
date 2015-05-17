@@ -6,10 +6,31 @@ published: true
 
 I want to change the property value of a component that has been created. From outside itself.
 
-As all answers on Stackoverflow seemed to involve too much complexity.
-This is a simple way of trying to explain it.
+As all answers on Stackoverflow seemed to involve quite a bit of complexity, I have tried to explain it in a simple manner.
 
-My external component
+**My current component**
+
+{% highlight javascript %}
+
+var CurrentComponent = React.createClass({
+
+  getInitialState: function() {
+    return {
+      added: false
+    };
+  };
+
+  render: function() {
+    return ExternalComponent({
+      added: this.state.added
+    });
+  }
+
+});
+
+{% endhighlight %}
+
+**My external component**
 
 {% highlight javascript %}
 
@@ -29,27 +50,6 @@ var ExternalComponent = React.createClass({
 
 )};
 
-{% endhighlight %}
-
-My current component
-
-{% highlight javascript %}
-
-var CurrentComponent = React.createClass({
-
-  getInitialState: function() {
-    return {
-      added: false
-    };
-  };
-
-  render: function() {
-    return ExternalComponent({
-      added: this.state.added
-    });
-  }
-
-});
 
 {% endhighlight %}
 
