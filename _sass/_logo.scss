@@ -1,0 +1,90 @@
+$lineweight: 1px;
+$linecolor: #888888;
+$speed: 0.5s;
+
+.logo h3 {
+  margin: 15px 20px 20px 20px;
+  font-weight: 300;
+  letter-spacing: 2px;
+  line-height: 35px;
+}
+
+.logo{
+  width:100px;
+  height:100px;
+  margin: auto;
+  position: absolute;
+  top:0;right:0;left:0;bottom:0;
+}
+
+.top{
+  position: absolute;
+  height:$lineweight;
+  top: -$lineweight;
+  background-color: $linecolor;
+  animation: $speed loadtop linear forwards;
+}
+.right{
+  width:$lineweight;
+  height: 0;
+  background-color: $linecolor;
+  position:absolute;
+  top:0;
+  right:-$lineweight;
+  animation: $speed $speed loadright linear forwards;
+}
+.bottom{
+  position: absolute;
+  background-color:$linecolor;
+  width: 0;
+  height:$lineweight;
+  bottom: -$lineweight;
+  right:0;
+  animation: $speed $speed*2 loadbottom linear forwards;
+
+}
+.left{
+  position: absolute;
+  width:$lineweight;
+  height: 0px;
+  bottom:0;
+  left:0 - $lineweight;
+  background-color:$linecolor;
+  animation: $speed $speed*3 loadleft linear forwards;
+}
+
+@keyframes loadtop {
+  0% {
+    width:0px;
+  }
+  100%{
+    width:100 + $lineweight;
+  }
+}
+
+@keyframes loadright {
+  0% {
+    height:0px;
+  }
+  100%{
+    height:100 + $lineweight;
+  }
+}
+
+@keyframes loadbottom {
+  0% {
+    width:0
+  }
+  100%{
+    width:100 + $lineweight;
+  }
+}
+
+@keyframes loadleft {
+  0% {
+    height:0px;
+  }
+  100%{
+    height:100 + $lineweight;
+  }
+}
