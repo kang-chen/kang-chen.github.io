@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Communicating between Components - ReactJS
-subtitle: Parent to Child
 published: true
 ---
 
@@ -9,7 +8,8 @@ I want to communicate a property change from one component to another component.
 
 The answers on Stackoverflow involved quite a bit of complexity, I have tried to explain it in a simple manner.
 
-**My inner component**
+
+**The inner component**
 
 {% highlight javascript %}
 
@@ -35,7 +35,7 @@ InnerComponent = React.createClass({
 
 {% endhighlight %}
 
-**My outer component**
+**The outer component**
 
 {% highlight javascript %}
 
