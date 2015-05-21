@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Communicating between Components - ReactJS
+title: Communicating between Components ( Parent to child ) - ReactJS
 published: true
 ---
 
@@ -8,6 +8,9 @@ I want to communicate a property change from one component to another component.
 
 The answers on Stackoverflow involved quite a bit of complexity, I have tried to explain it in a simple manner.
 
+In this scenario the outer component can change the properties of the inner component.
+
+The inner component can also change itself, although can't change the properties of the outer component.
 
 **The inner component**
 
