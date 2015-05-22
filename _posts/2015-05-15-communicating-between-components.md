@@ -29,14 +29,14 @@ InnerComponent = React.createClass({
     });
   },
   render: function() {
-    ...
-    render div based on current state
-    ...
+    # view the full render function in codepen
   }
 
 });
 
 {% endhighlight %}
+
+The primary concept is that the state of the outer component is copied into the props of the inner component.
 
 **The outer component**
 
@@ -51,9 +51,10 @@ OuterComponent = React.createClass({
   },
 
   render: function() {
-    ...
-    render the inner component
-    ...
+
+    # view the full render function in codepen
+
+    InnerComponent({changed: this.state.changed})
   }
 });
 
