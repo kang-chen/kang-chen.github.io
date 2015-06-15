@@ -10,7 +10,7 @@ As much as I love the idea of a decoupled front-end and back-end app. I don't pa
 
 By using [Firebase](https://www.firebase.com/) as a back-end we have a more intuitive method of maintaining a database and a simple API.
 
-Presently it can take days to setup an environment, this can be very frustrating if you're not proficient at computer science. Gulpfiles are becoming ridiculous in complexity.
+Presently it can take days to setup an environment, this can be very frustrating if you're not proficient at basic computer science. Gulpfiles are becoming ridiculous in complexity.
 
 Download this [boilerplate](https://github.com/kang-chen/react-firebase-gulp) and get started in a couple of minutes.
 
