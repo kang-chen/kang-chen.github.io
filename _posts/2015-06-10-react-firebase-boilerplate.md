@@ -13,5 +13,3 @@ By using [Firebase](https://www.firebase.com/) as a substitute for a back-end we
 Presently it can take days to setup an environment, Gulpfiles are becoming so ridiculous in complexity web developers now need to know the basics of computer science to be able to compile a basic website.
 
 Download this [boilerplate](https://github.com/kang-chen/react-firebase-gulp) and get started in a couple of minutes.
-
-*note there are many variations on the React/Firebase boilerplate. Not saying this is the be all end all of boilerplates, but it certainly helps with getting started.
