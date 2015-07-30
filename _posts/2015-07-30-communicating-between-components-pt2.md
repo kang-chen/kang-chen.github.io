@@ -27,7 +27,7 @@ var InnerComponent = React.createClass({
 
 {% endhighlight %}
 
-The InnerComponent takes a prop, which is a callback from the OuterComponent.
+The child component takes a prop, which is a callback from the parent component.
 
 **The outer component**
 
@@ -51,7 +51,7 @@ var OuterComponent = React.createClass({
 
 {% endhighlight %}
 
-In the OuterComponent we attach a handler to the callback that we pass into the InnerComponent.
+In the parent component we attach a handler to the callback that we pass into the child component.
 
 <pre><code>
 <p data-height="268" data-theme-id="15231" data-slug-hash="Pqxyqr" data-default-tab="result" data-user="kang" class='codepen'>See the Pen <a href='http://codepen.io/kang/pen/Pqxyqr/'>Communicate between React components</a> by Kang Chen (<a href='http://codepen.io/kang'>@kang</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
