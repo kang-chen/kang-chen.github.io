@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Communicating between Components ( child to parent ) - ReactJS
+title: Communicating between Components pt2. ( child to parent ) - ReactJS
 published: true
 ---
 
@@ -54,6 +54,6 @@ var OuterComponent = React.createClass({
 In the parent component we attach a handler to the callback that we pass into the child component.
 
 <pre><code>
-<p data-height="268" data-theme-id="15231" data-slug-hash="Pqxyqr" data-default-tab="result" data-user="kang" class='codepen'>See the Pen <a href='http://codepen.io/kang/pen/Pqxyqr/'>Communicate between React components</a> by Kang Chen (<a href='http://codepen.io/kang'>@kang</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+<p data-height="468" data-theme-id="15231" data-slug-hash="Pqxyqr" data-default-tab="result" data-user="kang" class='codepen'>See the Pen <a href='http://codepen.io/kang/pen/Pqxyqr/'>Communicate between React components</a> by Kang Chen (<a href='http://codepen.io/kang'>@kang</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
 <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
 </code></pre>
