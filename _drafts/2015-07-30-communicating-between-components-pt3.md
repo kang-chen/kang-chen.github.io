@@ -10,4 +10,4 @@ This method works ok in situations when your child component is a direct descend
 
 In this situation we need a trigger for this.
 
-Assuming you are using some form of MVC
+Assuming you are using some form of MVC.
