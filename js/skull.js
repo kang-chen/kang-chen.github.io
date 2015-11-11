@@ -1,7 +1,7 @@
 {
   "metadata": {
       "formatVersion": 3.1,
-      "sourceFile": "skull.obj",
+      "sourceFile": "skull-2.obj",
       "generator": "io_three",
       "generatedBy": "OBJConverter",
       "uvs": 0,
@@ -32,5 +32,5 @@
       "colorSpecular": [0.5,0.5,0.5],
       "wireframe": false
   }],
-  "buffers": "skull.obj"
+  "buffers": "skull-2.obj"
 }
