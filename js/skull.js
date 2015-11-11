@@ -31,5 +31,6 @@
       "shading": "phong",
       "colorSpecular": [0.5,0.5,0.5],
       "wireframe": false
-  }]
+  }],
+  "buffers": "skull.obj"
 }
