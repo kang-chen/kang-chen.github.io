@@ -1,4 +1,6 @@
-{
+{   "geomtries": [{
+      "type": "Geometry"
+    }],
     "materials": [{
         "opacity": 1,
         "specularCoef": 50,
