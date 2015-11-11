@@ -1,12 +1,14 @@
 {
   "metadata": {
-      "faces": 60339,
+      "formatVersion": 3.1,
       "sourceFile": "skull.obj",
       "generator": "io_three",
+      "generatedBy": "OBJConverter",
       "uvs": 0,
       "bones": 0,
       "morphTargets": 0,
       "version": 3,
+      "faces": 60339,
       "normals": 30218,
       "vertices": 30218,
       "materials": 1
