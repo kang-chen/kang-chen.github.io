@@ -30,41 +30,43 @@ $gold: #aa9483;
 
 }
 
-.top{
-  position: absolute;
-  height:$lineweight;
-  top: -$lineweight;
-  background-color: $linecolor;
-  animation: $speed loadtop linear forwards;
-}
-.right{
-  width:$lineweight;
-  height: 0;
-  background-color: $linecolor;
-  position:absolute;
-  top:0;
-  right:-$lineweight;
-  animation: $speed $speed loadright linear forwards;
-}
-.bottom{
-  position: absolute;
-  background-color:$linecolor;
-  width: 0;
-  height:$lineweight;
-  bottom: -$lineweight;
-  right:0;
-  animation: $speed $speed*2 loadbottom linear forwards;
+//defunct logo
 
-}
-.left{
-  position: absolute;
-  width:$lineweight;
-  height: 0px;
-  bottom:0;
-  left:0 - $lineweight;
-  background-color:$linecolor;
-  animation: $speed $speed*3 loadleft linear forwards;
-}
+// .top{
+//   position: absolute;
+//   height:$lineweight;
+//   top: -$lineweight;
+//   background-color: $linecolor;
+//   animation: $speed loadtop linear forwards;
+// }
+// .right{
+//   width:$lineweight;
+//   height: 0;
+//   background-color: $linecolor;
+//   position:absolute;
+//   top:0;
+//   right:-$lineweight;
+//   animation: $speed $speed loadright linear forwards;
+// }
+// .bottom{
+//   position: absolute;
+//   background-color:$linecolor;
+//   width: 0;
+//   height:$lineweight;
+//   bottom: -$lineweight;
+//   right:0;
+//   animation: $speed $speed*2 loadbottom linear forwards;
+//
+// }
+// .left{
+//   position: absolute;
+//   width:$lineweight;
+//   height: 0px;
+//   bottom:0;
+//   left:0 - $lineweight;
+//   background-color:$linecolor;
+//   animation: $speed $speed*3 loadleft linear forwards;
+// }
 
 @keyframes loadtop {
   0% {
