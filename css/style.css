@@ -19,10 +19,16 @@ body {
   top: 13px;
 }
 
-.github, .twitter {
-  width: 40px;
+.social-links a {
+  float: left;
 }
 
+.github {
+  width: 40px;
+}
+.twitter {
+  width: 40px;
+}
 
 
 @media only screen and (max-device-width: 480px) {
