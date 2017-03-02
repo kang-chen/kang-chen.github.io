@@ -25,6 +25,7 @@ body {
 
 .github {
   width: 40px;
+  display: none;
 }
 .twitter {
   width: 40px;

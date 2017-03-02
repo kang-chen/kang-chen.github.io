@@ -4,10 +4,19 @@
   top: 13px;
 }
 
-.github {
-  width: 40px;
-}
-
 .center {
   margin: 0 auto;
+}
+
+.social-links {
+  padding: 20px 0;
+}
+
+.social-links a {
+  float: left;
+  margin-right: 20px;
+}
+
+.footer {
+  clear: both;
 }
