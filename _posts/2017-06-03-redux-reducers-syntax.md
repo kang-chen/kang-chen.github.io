@@ -8,9 +8,9 @@ I'd like to discuss the syntax used to write Redux reducers.
 
 If you don't already know what Redux or reducers are, they are basically the state machine controller for a React application. Writing the code for reducers involves immutable pure functions, which means given certain input params, the function will return a new values with no mutations on any variables outside of it's scope.
 
-What is the opposite of functional? That would be imperative (procedural) programming. For me and probably most humans it feels far more normal to be doing procedural programming and that's usually what is taught in schools. Procedural is kind of like reading a book, top down. While functional often feels like you're building a neutral network of code.
+What is the opposite of functional? That would be imperative (procedural) programming. For me and probably most humans it feels normal to be doing procedural programming and that's usually what is taught in comp sci 101. Procedural is kind of like reading a book, top down. While functional often feels like you're building a neutral network of code.
 
-I don't want to get deeply into architecting a redux application, there are thousands of articles out there that tackle this. I want to highlight the readability differences of using pure ES6 syntax, and a mixed imperative approach using functional libraries.
+I don't want to get into architecting a redux application, there are thousands of articles out there that tackle this topic. I want to highlight the readability differences of using pure ES6 syntax, and a mixed imperative approach using functional libraries.
 
 **Input data structure:**
 
