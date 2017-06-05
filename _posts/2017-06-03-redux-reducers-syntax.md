@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Syntax for Redux Reducers, pure ES6 vs functional libraries
-published: false
+published: true
 ---
 
 I'd like to discuss the syntax used to write Redux reducers.
