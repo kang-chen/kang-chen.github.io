@@ -72,7 +72,7 @@ const translate = (state = {}, products) => {
 //what this spread syntax does
 let obj1 = { a:1, b:2 }
 let obj2 = { b:3, c:4}
-let obj3 = { …obj1, …obj2}
+let obj3 = { ...obj1, ...obj2}
 //will result in {a:1, b:3, c:4}
 
 {% endhighlight %}
@@ -84,14 +84,14 @@ let obj3 = { …obj1, …obj2}
 import _ from "lodash"
 
 const translate = (state = {}, products) => {
-    let newState = _.clone(state)
-    _.each(action.products, (product) => {
-      let id = product.id
-      let newObj = {}
-      newObj[id] = _.assign( product, newState)
-      _.merge(newState, newObj)
-    })
-    return newState
+  let newState = _.clone(state)
+  _.each(action.products, (product) => {
+    let id = product.id
+    let newObj = {}
+    newObj[id] = _.assign( product, newState)
+    _.merge(newState, newObj)
+  })
+  return newState
 }
 
 {% endhighlight %}
