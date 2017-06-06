@@ -15,6 +15,9 @@ baseurl:             ""
 # Assets
 #
 # We specify the directory for Jekyll so we can use @imports.
-sass:
-  sass_dir:          _sass
-  style:            :compressed
+# sass:
+#   sass_dir:          _sass
+#   style:            :compressed
+
+gems: [jekyll-paginate]
+exclude: ['README.md', 'Gemfile.lock', 'Gemfile', 'Rakefile']

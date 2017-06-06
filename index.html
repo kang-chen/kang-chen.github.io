@@ -1,49 +1,49 @@
 ---
-layout: home
+layout: default
 title: Home
 ---
 
-<div class="body">
-  <div class="about">
-    <p>Hi, my name is Kang. I'm a developer located in London, primarily focused on the front-end of the web.</p>
-    <p>In my spare time I enjoy creating experiments in graphics and visual arts which can be found on <a href="http://codepen.io/kang/" target="_blank">Codepen</a>.</p>
-    <p>My latest collaboration is <a href="https://github.com/kang-chen/sketch-export-generator" target="_blank">Sketch Export Generator</a>, a plugin for <a href="https://www.sketchapp.com/" target="_blank">Sketch</a> which helps developers and designers export assets for iOS and Android.</p>
-    <p>I'm currently building and maintaining the task outsourcing platform <a href="http://www.airtasker.com" target="_blank">Airtasker</a>.</p>
-    <p>Read about javascript development processes on my <a href="/blog">blog</a>.</p>
-    <p class="email">If you would like to get in touch, my email address is mail [at] kangchen.me</p>
-  </div>
-  <!-- <nav>
-    <ul>
-      <li><a href="/about/">About</a></li>
-    </ul>
-  </nav> -->
-  <div class="learnings">
-    <p>The following are the software languages, web frameworks and design patterns which I'm most familiar with:</p>
-    <ul>
-      <li>Javascript (ES6)</li>
-      <li>Coffeescript</li>
-      <li>React, Backbone, Angular (frameworks)</li>
-      <li>Node JS</li>
-      <li>CSS, SCSS, LESS, Sylus</li>
-      <li>Unit tests and automated testing using Jest, Webdriver, Selenium</li>
-      <li>SEO/SEM</li>
-    </ul>
-  </div>
-  <p class="center">Elsewhere on the web:</p>
-  <div class="social-links">
-    <!-- <a href="http://codepen.io/kang/" target="_blank">
-      <img class="codepen" src="/images/codepen-text-logo.png", alt="codepen logo">
-    </a>
-    -->
-    <!--
-    <a href="https://twitter.com/kanghongchen" class="twitter-follow-button" data-show-count="false">Follow @kanghongchen</a>
-    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-    -->
-    <a href="https://github.com/kang-chen" target="_blank">
-      <img class="github" srcset="/images/github-logo.png 2x" alt="github logo">
-    </a>
-    <a href="https://twitter.com/_kangchen" target="_blank">
-      <img class="twitter" srcset="/images/twitter-logo.png 2x" alt="twitter logo">
-    </a>
-  </div>
-</div>
+{% for post in paginator.posts %}
+
+	<article class="post">
+
+		{% if post.external-url %}
+			<h1>
+				<a href="{{ post.external-url }}">{{ post.title }}</a>
+				<a class="anchor" href="{{ post.url }}"><i class="icon-anchor"></i></a>
+			</h1>
+		{% else %}
+			<h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
+		{% endif %}
+
+		<div class="post-content">{{ post.content }}</div>
+
+	</article>
+
+{% endfor %}
+
+
+
+{% if paginator.total_pages > 1 %}
+	<div class="postnavigation">
+
+		{% if paginator.previous_page %}
+			{% if paginator.page == 2 %}
+				<a class="prev left" href="/">&larr; Newer</a>
+			{% else %}
+				<a class="prev left" href="/page{{paginator.previous_page}}/">&larr; Newer</a>
+			{% endif %}
+		{% else %}
+			<span class="nope left">&larr; Newer</span>
+		{% endif %}
+
+		<span class="pages">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
+
+		{% if paginator.next_page %}
+			<a class="next right" href="/page{{paginator.next_page}}/">Older &rarr;</a>
+		{% else %}
+			<span class="nope right">Older &rarr;</span>
+		{% endif %}
+
+	</div>
+{% endif %}
