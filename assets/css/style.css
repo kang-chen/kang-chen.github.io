@@ -30,8 +30,8 @@ table {
 
 /*** Basics ***/
 body {
-	font-family: Verdana, serif;
-	font-size: 13px;
+	font-family: 'Lato', Arial, serif;
+	font-size: 14px;
 	line-height: 1.7;
 }
 
@@ -152,7 +152,7 @@ h3 {
 
 #sidebar a {
 	border: none;
-	font-family: "Helvetica Neue", "Helvetica", serif;
+	font-family: "Lato","Helvetica Neue", "Helvetica", serif;
 	font-size: 1.2em;
 	padding: 2px 4px;
 }
@@ -183,7 +183,7 @@ article img {
 
 article .meta {
 	padding-top: 6px;
-	font-size: 0.85em;
+	font-size: 1em;
 	font-style: italic;
 }
 
