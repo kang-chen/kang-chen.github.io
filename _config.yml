@@ -3,8 +3,11 @@ permalink: /blog/:title
 # Setup
 title:               Kang Chen
 tagline:             Developer
+name: 'Kang Chen'
+description: 'you'
 url:                 http://kangchen.me
 paginate:            1
+paginator_path: 'blog/page:num'
 baseurl:             ""
 # gallery:
 #   thumbnail_size:
@@ -15,9 +18,9 @@ baseurl:             ""
 # Assets
 #
 # We specify the directory for Jekyll so we can use @imports.
-# sass:
-#   sass_dir:          _sass
-#   style:            :compressed
+sass:
+  sass_dir:          _sass
+  style:            :compressed
 
 gems: [jekyll-paginate]
 exclude: ['README.md', 'Gemfile.lock', 'Gemfile', 'Rakefile']

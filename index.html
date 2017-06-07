@@ -3,47 +3,63 @@ layout: default
 title: Home
 ---
 
-{% for post in paginator.posts %}
+<div class="home-container">
+  <canvas id="myCanvas" width="640" height="980"></canvas>
+    <script>
+      var c=document.getElementById("myCanvas");
+      var ctx=c.getContext("2d");
+      var maxHeight = 1080
 
-	<article class="post">
+      var animationFrame;
+      function startAnimating(fps) {
+          fpsInterval = 1000 / fps;
+          then = Date.now();
+          startTime = then;
+          console.log(startTime);
+          drawGrids(200, 300, 9, 10, ctx, true);
+      }
 
-		{% if post.external-url %}
-			<h1>
-				<a href="{{ post.external-url }}">{{ post.title }}</a>
-				<a class="anchor" href="{{ post.url }}"><i class="icon-anchor"></i></a>
-			</h1>
-		{% else %}
-			<h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
-		{% endif %}
+      function drawGrids(width, height, number, padding = 50, context, interval) {
+        var maxWidth = 630;
+        var newWidth = padding;
+        var newHeight = padding;
 
-		<div class="post-content">{{ post.content }}</div>
+        function draw() {
+          for ( i = 0; i < number; i++ ) {
+            console.log("fill rectangle called", newWidth)
+            console.log("fill rectangle called", newHeight)
+            // Light pastels
+            var r = Math.floor((Math.random() * 255) + 155);
+            var g = Math.floor((Math.random() * 255) + 155);
+            var b = Math.floor((Math.random() * 255) + 155);
+            // var r = Math.floor((Math.random() * 155) + 1);
+            // var g = Math.floor((Math.random() * 5) + 1);
+            // var b = Math.floor((Math.random() * 255) + 1);
+            context.fillStyle = `rgb(${~~r},${~~g},${~~b})`
+            context.fillRect(newWidth, newHeight, width, height)
+            newWidth += (width+padding)
+            if (newWidth > maxWidth) {
+              newHeight += (height + padding);
+              newWidth = padding;
+            }
+          }
+        }
+        if (interval) {
+          animationFrame = requestAnimationFrame(function() { drawGrids(200, 300, 9, 10, ctx, true) });
+          now = Date.now();
+          elapsed = now - then;
+          if (elapsed > fpsInterval) {
 
-	</article>
+             then = now - (elapsed % fpsInterval);
+            draw()
+          }
+        }
+        else {
+          draw()
+        }
+      }
+      drawGrids(200, 300, 9, 10, ctx, false);
+      startAnimating(0.5);
 
-{% endfor %}
-
-
-
-{% if paginator.total_pages > 1 %}
-	<div class="postnavigation">
-
-		{% if paginator.previous_page %}
-			{% if paginator.page == 2 %}
-				<a class="prev left" href="/">&larr; Newer</a>
-			{% else %}
-				<a class="prev left" href="/page{{paginator.previous_page}}/">&larr; Newer</a>
-			{% endif %}
-		{% else %}
-			<span class="nope left">&larr; Newer</span>
-		{% endif %}
-
-		<span class="pages">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
-
-		{% if paginator.next_page %}
-			<a class="next right" href="/page{{paginator.next_page}}/">Older &rarr;</a>
-		{% else %}
-			<span class="nope right">Older &rarr;</span>
-		{% endif %}
-
-	</div>
-{% endif %}
+      </script>
+</div>

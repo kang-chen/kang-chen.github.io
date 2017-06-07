@@ -28,8 +28,6 @@ table {
 	border-spacing: 0;
 }
 
-
-
 /*** Basics ***/
 body {
 	font-family: Verdana, serif;
@@ -39,12 +37,12 @@ body {
 
 a, a:active, a:visited {
 	text-decoration: none;
-	border-bottom: 1px solid #839496;
 	padding-bottom: 2px;
 }
 a:hover {
-	background-color: #839496;
-	color: #000000;
+	/*background-color: #839496;
+	color: #000000;*/
+	/*text-decoration: underline;*/
 }
 
 p, pre { margin-bottom: 15px; }
@@ -109,13 +107,13 @@ h3 {
 
 /*** Structure ***/
 #page {
-	width: 500px;
+	width: 640px;
 	margin: 0 auto;
 	position: relative;
 }
 
 #header {
-	width: 500px;
+	width: 600px;
 	margin: 40px auto 50px auto;
 }
 #header h1 {
@@ -127,7 +125,7 @@ h3 {
 }
 
 #footer {
-	width: 500px;
+	width: 600px;
 	margin: 50px auto 20px auto;
 	padding-top: 10px;
 	font-size: 0.85em;
@@ -135,7 +133,7 @@ h3 {
 }
 
 #content {
-	width: 500px;
+	width: 600px;
 	margin: 0 auto;
 }
 
@@ -246,8 +244,6 @@ img.center {
 
 }
 
-
-
 /*** Icons ***/
 @font-face {
   font-family: 'solarthemeicons';
@@ -274,7 +270,7 @@ img.center {
   text-transform: none;
   line-height: 1.7;
 }
- 
+
 .icon-sun:before { content: '\e801'; }
 .icon-anchor:before { content: '\e800'; }
 .icon-anchor {
