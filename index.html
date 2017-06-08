@@ -40,14 +40,37 @@ title: Home
               newWidth = padding;
             }
           }
+
+          function drawQuadraticLines(number, strokeWidth, strokeColor, context) {
+            for ( i = 0; i < number; i++ ) {
+              var moveToCordX = Math.floor((Math.random() * maxWidth) + 1);
+              var moveToCordY = Math.floor((Math.random() * maxHeight) + 1);
+              var lineToCordX = Math.floor((Math.random() * maxWidth) + 1);
+              var lineToCordY = Math.floor((Math.random() * maxHeight) + 1);
+              context.beginPath();
+              context.moveTo(moveToCordX,moveToCordY);
+              var curveRegionX = Math.floor((Math.random() * -maxWidth) + maxWidth);
+              var curveRegionY = Math.floor((Math.random() * -maxHeight) + maxHeight);
+              context.quadraticCurveTo(curveRegionX,curveRegionY,lineToCordX,lineToCordY);
+              context.lineWidth=strokeWidth;
+              context.strokeStyle=strokeColor;
+              context.stroke();
+              context.closePath();``
+            }
+          }
+
+          drawQuadraticLines(6, 10, "#424242", ctx)
         }
+
         if (interval) {
-          animationFrame = requestAnimationFrame(function() { drawGrids(200, 300, 9, 10, ctx, true) });
+          animationFrame = requestAnimationFrame(function() {
+            drawGrids(200, 300, 9, 10, ctx, true)
+          });
           now = Date.now();
           elapsed = now - then;
           if (elapsed > fpsInterval) {
-
-             then = now - (elapsed % fpsInterval);
+            then = now - (elapsed % fpsInterval);
+            context.clearRect(0, 0, c.width, c.height)
             draw()
           }
         }
@@ -55,6 +78,7 @@ title: Home
           draw()
         }
       }
+
       drawGrids(200, 300, 9, 10, ctx, false);
       startAnimating(0.5);
 
