@@ -4,83 +4,84 @@ title: Home
 ---
 
 <div class="home-container">
-  <canvas id="myCanvas" width="640" height="980"></canvas>
-  <p class="captionText">The above is made with html5 canvas and javascript.</p>
-    <script>
-      var c=document.getElementById("myCanvas");
-      var ctx=c.getContext("2d");
-      var maxHeight = 1080
-
-      var animationFrame;
-      function startAnimating(fps) {
-          fpsInterval = 1000 / fps;
-          then = Date.now();
-          startTime = then;
-          drawGrids(200, 300, 9, 10, ctx, true);
-      }
-
-      function drawGrids(width, height, number, padding = 50, context, interval) {
-        var maxWidth = 630;
-        var newWidth = padding;
-        var newHeight = padding;
-
-        function draw() {
-          for ( i = 0; i < number; i++ ) {
-            // Light pastels
-            var r = Math.floor((Math.random() * 255) + 155);
-            var g = Math.floor((Math.random() * 255) + 155);
-            var b = Math.floor((Math.random() * 255) + 155);
-            // var r = Math.floor((Math.random() * 155) + 1);
-            // var g = Math.floor((Math.random() * 5) + 1);
-            // var b = Math.floor((Math.random() * 255) + 1);
-            context.fillStyle = `rgb(${~~r},${~~g},${~~b})`
-            context.fillRect(newWidth, newHeight, width, height)
-            newWidth += (width+padding)
-            if (newWidth > maxWidth) {
-              newHeight += (height + padding);
-              newWidth = padding;
-            }
-          }
-
-          function drawQuadraticLines(number, strokeWidth, strokeColor, context) {
-            for ( i = 0; i < number; i++ ) {
-              var moveToCordX = Math.floor((Math.random() * maxWidth) + 1);
-              var moveToCordY = Math.floor((Math.random() * maxHeight) + 1);
-              var lineToCordX = Math.floor((Math.random() * maxWidth) + 1);
-              var lineToCordY = Math.floor((Math.random() * maxHeight) + 1);
-              context.beginPath();
-              context.moveTo(moveToCordX,moveToCordY);
-              var curveRegionX = Math.floor((Math.random() * -maxWidth) + maxWidth);
-              var curveRegionY = Math.floor((Math.random() * -maxHeight) + maxHeight);
-              context.quadraticCurveTo(curveRegionX,curveRegionY,lineToCordX,lineToCordY);
-              context.lineWidth=strokeWidth;
-              context.strokeStyle=strokeColor;
-              context.stroke();
-              context.closePath();
-            }
-          }
-
-          // drawQuadraticLines(6, 10, "#424242", ctx)
-        }
-        if (interval) {
-          animationFrame = requestAnimationFrame(function() {
-            drawGrids(200, 300, 9, 10, ctx, true)
-          });
-          now = Date.now();
-          elapsed = now - then;
-          if (elapsed > fpsInterval) {
-            then = now - (elapsed % fpsInterval);
-            context.clearRect(0, 0, c.width, c.height)
-            draw()
-          }
-        }
-        else {
-          draw()
-        }
-      }
-
-      drawGrids(200, 300, 9, 10, ctx, false);
-      startAnimating(0.5);
-
-      </script>
+  <div>
+    <h3>Apps</h3>
+    <div>
+      <h3><a href="https://www.airtasker.com/" target="_blank">Airtasker</a></h3>
+      <ul>
+        <li>Core web application in Coffeescript/Javascript ES6</li>
+        <li>Backbone, React, RESTful Architecture</li>
+        <li>Interactions, carousel, pop ups etc</li>
+        <li>Corporate partnership application with JB-HI-FI and Ikea</li>
+      </ul>
+    </div>
+    <div>
+      <h3><a href="https://www.easywill.com.au/" target="_easywill">Easywill</a></h3>
+      <ul>
+        <li>UX/UI design</li>
+        <li>Javascript for user interface</li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <h3>Web</h3>
+    <div>
+      <h3><a href="http://www.newcastle.edu.au/" target="_blank">University of Newscastle</a></h3>
+      <ul>
+        <li>Information architecture</li>
+        <li>Landing pages</li>
+      </ul>
+    </div>
+    <div>
+      <h3><a href="http://www.australiacouncil.gov.au/" target="_blank" >Australia Council of Arts</a></h3>
+      <ul>
+        <li>Information architecture</li>
+        <li>Landing pages</li>
+        <li>Interative site modules including banner</li>
+      </ul>
+    </div>
+    <div>
+      <h3><a href="http://www.waternsw.com.au/supply/dam-levels/greater-sydneys-dam-levels" target="_blank">Water NSW</a></h3>
+      <ul>
+        <li>XML data integration</li>
+        <li>Javascript for page interactions</li>
+        <li>Web integration</li>
+      </ul>
+    </div>
+    <div>
+      <h3><a href="https://railsafe.org.au/" target="_blank">Railsafe</a></h3>
+      <ul>
+        <li>Javascript document search</li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <h3>Side projects</h3>
+    <div>
+      <a href="https://github.com/kang-chen/sketch-export-generator" target="_blank">Sketch Export Generator</a>
+      <ul>
+        <li>Cocoascript/javascript plugin for Sketch app</li>
+      </ul>
+    </div>
+    <div>
+      <h3><a href="https://codepen.io/kang/pen/VLYOwj" target="_blank">Tumblr Blog Previewer</a></h3>
+      <a href="https://codepen.io/kang/" target="_blank"></a>
+      <ul>
+        <li>Cocoascript/javascript plugin for Sketch app</li>
+      </ul>
+    </div>
+    <div>
+      <h3><a href="http://localhost:4000/projects/quoter/">Quoter</a></h3>
+      <ul>
+        <li>ES6, React, Redux</li>
+        <li>Work in progress</li>
+      </ul>
+    </div>
+    <div>
+      <h3><a href="https://github.com/kang-chen/react-firebase-gulp" target="_blank">React + Firebase Boilerplate</a></h3>
+      <ul>
+        <li>Boilerplate to get started in React and Firebase</li>
+      </ul>
+    </div>
+  </div>
 </div>
