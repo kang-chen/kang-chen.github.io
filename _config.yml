@@ -21,6 +21,9 @@ baseurl:             ""
 sass:
   sass_dir:          _sass
   style:            :compressed
-
+collections:
+  _categories:
+    output: true
+    permalink: /blog/:name/
 gems: [jekyll-paginate]
 exclude: ['README.md', 'Gemfile.lock', 'Gemfile', 'Rakefile']
