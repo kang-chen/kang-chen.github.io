@@ -1,0 +1,70 @@
+---
+layout: default
+title: Squares
+---
+
+<div class="labs-container">
+  <canvas id="myCanvas"></canvas>
+  <p>Binary particles</p>
+  <script>
+
+    if ( !window.requestAnimationFrame ) {
+
+      window.requestAnimationFrame = ( function() {
+
+        return window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.oRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        function( /* function FrameRequestCallback */ callback, /* DOMElement Element */ element ) {
+          window.setTimeout( callback, 1000 / 60 );
+        };
+
+      } )();
+    }
+
+    var c=document.getElementById("myCanvas");
+    var ctx=c.getContext("2d");
+    var maxHeight = 1080
+    ctx.canvas.width  = window.innerWidth;
+    ctx.canvas.height = window.innerHeight - 200;
+    // function startAnimating(fps) {
+    //     fpsInterval = 1000 / fps;
+    //     then = Date.now();
+    //     startTime = then;
+    //     drawGrids(200, 300, 9, 10, ctx, true);
+    // }
+    function drawGrids(width, height, number, padding = 50, context, interval) {
+        console.log("drawgrids called")
+        var maxWidth = 630;
+        var newWidth = padding;
+        var newHeight = padding;
+
+        function draw() {
+          for ( i = 0; i < number; i++ ) {
+            // Light pastels
+            if (Math.floor(Math.random() * 2) == 0) {
+              var r = g = b = 255;
+
+            }
+            else {
+              var r = g = b = 0;
+            }
+
+            context.fillStyle = `rgb(${~~r*55},${~~g*55},${~~b})`
+            context.fillRect(newWidth, newHeight, width, height)
+            newWidth += (width+padding)
+            if (newWidth > maxWidth) {
+              newHeight += (height + padding);
+              newWidth = padding;
+            }
+          }
+      }
+      draw()
+    }
+
+    drawGrids(5, 5, 5000, 10, ctx, false);
+    // startAnimating(0.5);
+    </script>
+
+</div>
