@@ -33,7 +33,7 @@ title: Nurbs with collision detection
         //     startTime = then;
         //     drawGrids(200, 300, 9, 10, ctx, true);
         // }
-        function drawGrids2(width, height, number, padding = 50, context, interval) {
+        function drawGrids2(width, height, number, padding = 50, context, length) {
             console.log("drawgrids called")
             var maxWidth = 630;
             var newWidth = padding;
@@ -60,13 +60,13 @@ title: Nurbs with collision detection
                 var moveToCordY = Math.floor((Math.random() * maxHeight) + 1);
                 // var lineToCordX = moveToCordX + Math.floor(Math.random() * -3 - 3);
                 // var lineToCordY = moveToCordY + Math.floor(Math.random() * -3 - 3);
-                var lineToCordX = moveToCordX + Math.floor(Math.random() * -3 - 3);
-                var lineToCordY = moveToCordY + Math.floor(Math.random() * -3 - 3);
+                var lineToCordX = moveToCordX + Math.floor(Math.random() * -length - length);
+                var lineToCordY = moveToCordY + Math.floor(Math.random() * -length - length);
 
                 context.beginPath();
                 context.moveTo(moveToCordX,moveToCordY);
-                var curveRegionX = Math.floor(Math.random() * -3 - 3);
-                var curveRegionY = Math.floor(Math.random() * -3 - 3);
+                var curveRegionX = moveToCordX + Math.floor(Math.random() * -200 - 2);
+                var curveRegionY = moveToCordY + Math.floor(Math.random() * -200 - 2);
                 context.quadraticCurveTo(curveRegionX,curveRegionY,lineToCordX,lineToCordY);
                 currentQuadraticCurves.push({
                   a : {
@@ -90,7 +90,7 @@ title: Nurbs with collision detection
           }
           draw()
         }
-        drawGrids2(200, 300, 9, 10, ctx2, false);
+        drawGrids2(200, 300, 9, 10, ctx2, 100);
         // startAnimating(0.5);
         </script>
 </div>
