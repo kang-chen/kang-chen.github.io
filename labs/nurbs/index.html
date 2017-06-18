@@ -1,0 +1,98 @@
+---
+layout: default
+title: Nurbs with collision detection
+---
+
+<div class="labs-container">
+
+    <canvas id="canvas-2" width="640" height="980"></canvas>
+    <p>With added quadraticCurves</p>
+
+      <script>
+
+        if ( !window.requestAnimationFrame ) {
+
+          window.requestAnimationFrame = ( function() {
+            return window.webkitRequestAnimationFrame ||
+            window.mozRequestAnimationFrame ||
+            window.oRequestAnimationFrame ||
+            window.msRequestAnimationFrame ||
+            function( /* function FrameRequestCallback */ callback, /* DOMElement Element */ element ) {
+              window.setTimeout( callback, 1000 / 60 );
+            };
+
+          } )();
+        }
+
+        var c2=document.getElementById("canvas-2");
+        var ctx2=c2.getContext("2d");
+        var maxHeight = 1080;
+        // function startAnimating(fps) {
+        //     fpsInterval = 1000 / fps;
+        //     then = Date.now();
+        //     startTime = then;
+        //     drawGrids(200, 300, 9, 10, ctx, true);
+        // }
+        function drawGrids2(width, height, number, padding = 50, context, interval) {
+            console.log("drawgrids called")
+            var maxWidth = 630;
+            var newWidth = padding;
+            var newHeight = padding;
+            var currentQuadraticCurves = [];
+
+            function collision() {
+              //store array co-ordinates of all quadratic curves
+              // if the curve is within boundaries of previous curves
+              // shift and recalculate
+
+              for (i=0; i <= currentQuadraticCurves.length; i++) {
+                // determine all variations of x and y co-ord
+              }
+            }
+
+            function draw() {
+              quadNumber = 6
+              strokeWidth = 10
+              strokeColor = "#424242"
+              // context.clearRect(0, 0, c.width, c.height)
+              for ( i = 0; i < number; i++ ) {
+                var moveToCordX = Math.floor((Math.random() * maxWidth) + 1);
+                var moveToCordY = Math.floor((Math.random() * maxHeight) + 1);
+
+                console.log("begin path x", moveToCordX)
+                console.log("begin path y", moveToCordY)
+
+                var lineToCordX = moveToCordX + Math.floor(Math.random() * -3 - 3);
+                var lineToCordY = moveToCordY + Math.floor(Math.random() * -3 - 3);
+
+                context.beginPath();
+                context.moveTo(moveToCordX,moveToCordY);
+                var curveRegionX = Math.floor((Math.random() * -maxWidth) + maxWidth);
+                var curveRegionY = Math.floor((Math.random() * -maxHeight) + maxHeight);
+                context.quadraticCurveTo(curveRegionX,curveRegionY,lineToCordX,lineToCordY);
+                currentQuadraticCurves.push({
+                  a : {
+                    x: moveToCordX,
+                    y: moveToCordY
+                  },
+                  b: {
+                    x: curveRegionX,
+                    y: curveRegionY
+                  },
+                  c: {
+                    x: lineToCordX,
+                    y: lineToCordY
+                  }
+                })
+                context.lineWidth=strokeWidth;
+                context.strokeStyle=strokeColor;
+                context.stroke();
+                context.closePath();
+              }
+          }
+          draw()
+        }
+        drawGrids2(200, 300, 9, 10, ctx2, false);
+        // startAnimating(0.5);
+        </script>
+</div>
