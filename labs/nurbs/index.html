@@ -6,7 +6,9 @@ title: Nurbs with collision detection
 <div class="labs-container">
 
     <canvas id="canvas" width="640" height="980"></canvas>
-    <p>With added quadraticCurves</p>
+    <p>Algo for random points in a 2D space</p>
+    <p>You have four points in a 2D space</p>
+    <p>Your starting point begins at co-ordinates 20,20 which means that
 
       <script>
 
@@ -24,10 +26,11 @@ title: Nurbs with collision detection
           } )();
         }
 
+        var skullDat = "";
+
         var c=document.getElementById("canvas");
         var ctx=c.getContext("2d");
         var maxHeight = 1080;
-
 
         var grd=ctx.createLinearGradient(0,0,ctx.canvas.width, ctx.canvas.height);
         grd.addColorStop(0, "rgb(255,0,255)" );
