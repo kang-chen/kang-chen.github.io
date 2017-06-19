@@ -27,19 +27,40 @@ title: Nurbs with collision detection
         var c=document.getElementById("canvas");
         var ctx=c.getContext("2d");
         var maxHeight = 1080;
-        // function startAnimating(fps) {
-        //     fpsInterval = 1000 / fps;
-        //     then = Date.now();
-        //     startTime = then;
-        //     drawGrids(200, 300, 9, 10, ctx, true);
-        // }
+
 
         var grd=ctx.createLinearGradient(0,0,ctx.canvas.width, ctx.canvas.height);
         grd.addColorStop(0, "rgb(255,0,255)" );
         grd.addColorStop(1, "rgb(0,255,90)" );
-
         ctx.fillStyle=grd;
         ctx.fillRect(0,0,window.innerWidth,window.innerHeight);
+
+        var drawGrid = function(ctx, w, h, step) {
+          ctx.beginPath();
+          for (var x=0;x<=w;x+=step) {
+                  ctx.moveTo(x, 0);
+                  ctx.lineTo(x, h);
+          }
+          // set the color of the line
+          ctx.strokeStyle = 'white';
+          ctx.lineWidth = 1;
+          // the stroke will actually paint the current path
+          ctx.stroke();
+          // for the sake of the example 2nd path
+          ctx.beginPath();
+          for (var y=0;y<=h;y+=step) {
+                  ctx.moveTo(0, y);
+                  ctx.lineTo(w, y);
+          }
+          // set the color of the line
+          ctx.strokeStyle = 'white';
+          // just for fun
+          ctx.lineWidth = 1;
+          // for your original question - you need to stroke only once
+          ctx.stroke();
+        }
+
+        drawGrid(ctx, 640, 980, 15);
 
         function drawGrids2(width, height, number, padding = 50, context, length) {
             console.log("drawgrids called")
@@ -58,10 +79,12 @@ title: Nurbs with collision detection
               }
             }
 
+            function switchQuadrant() {
+
+            }
+
             function draw() {
-              quadNumber = 6
-              strokeWidth = 10
-              strokeColor = "#424242"
+
               // context.clearRect(0, 0, c.width, c.height)
               for ( i = 0; i < number; i++ ) {
                 var moveToCordX = Math.floor((Math.random() * maxWidth) + 1);
@@ -72,6 +95,7 @@ title: Nurbs with collision detection
                 var lineToCordY;
 
                 var quadNumber = Math.floor(Math.random() * 4) + 1;
+
                 switch(quadNumber) {
                   case 1:
                       lineToCordX = moveToCordX + Math.floor(Math.random() * -length - length);
@@ -126,8 +150,8 @@ title: Nurbs with collision detection
                     y: lineToCordY
                   }
                 })
-                context.lineWidth=strokeWidth;
-                context.strokeStyle=strokeColor;
+                context.lineWidth=10;
+                context.strokeStyle="#fefefe";
                 context.stroke();
                 context.closePath();
               }
