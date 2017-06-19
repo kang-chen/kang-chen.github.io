@@ -5,7 +5,7 @@ title: Nurbs with collision detection
 
 <div class="labs-container">
 
-    <canvas id="canvas-2" width="640" height="980"></canvas>
+    <canvas id="canvas" width="640" height="980"></canvas>
     <p>With added quadraticCurves</p>
 
       <script>
@@ -24,8 +24,8 @@ title: Nurbs with collision detection
           } )();
         }
 
-        var c2=document.getElementById("canvas-2");
-        var ctx2=c2.getContext("2d");
+        var c=document.getElementById("canvas");
+        var ctx=c.getContext("2d");
         var maxHeight = 1080;
         // function startAnimating(fps) {
         //     fpsInterval = 1000 / fps;
@@ -33,6 +33,14 @@ title: Nurbs with collision detection
         //     startTime = then;
         //     drawGrids(200, 300, 9, 10, ctx, true);
         // }
+
+        var grd=ctx.createLinearGradient(0,0,ctx.canvas.width, ctx.canvas.height);
+        grd.addColorStop(0, "rgb(255,0,255)" );
+        grd.addColorStop(1, "rgb(0,255,90)" );
+
+        ctx.fillStyle=grd;
+        ctx.fillRect(0,0,window.innerWidth,window.innerHeight);
+
         function drawGrids2(width, height, number, padding = 50, context, length) {
             console.log("drawgrids called")
             var maxWidth = 630;
@@ -60,8 +68,44 @@ title: Nurbs with collision detection
                 var moveToCordY = Math.floor((Math.random() * maxHeight) + 1);
                 // var lineToCordX = moveToCordX + Math.floor(Math.random() * -3 - 3);
                 // var lineToCordY = moveToCordY + Math.floor(Math.random() * -3 - 3);
-                var lineToCordX = moveToCordX + Math.floor(Math.random() * -length - length);
-                var lineToCordY = moveToCordY + Math.floor(Math.random() * -length - length);
+                var lineToCordX;
+                var lineToCordY;
+
+                var quadNumber = Math.floor(Math.random() * 4) + 1;
+                switch(quadNumber) {
+                  case 1:
+                      lineToCordX = moveToCordX + Math.floor(Math.random() * -length - length);
+                      lineToCordY = moveToCordY + Math.floor(Math.random() * -length - length);
+                      break;
+                  case 2:
+                      lineToCordX = moveToCordX + Math.floor(Math.random() * -length - length);
+                      lineToCordY = moveToCordY - Math.floor(Math.random() * -length - length);
+                      break;
+                  case 3:
+                      lineToCordX = moveToCordX - Math.floor(Math.random() * -length - length);
+                      lineToCordY = moveToCordY - Math.floor(Math.random() * -length - length);
+                      break;
+                  case 4:
+                      lineToCordX = moveToCordX - Math.floor(Math.random() * -length - length);
+                      lineToCordY = moveToCordY + Math.floor(Math.random() * -length - length);
+                      break;
+                  default:
+                      lineToCordX = moveToCordX + Math.floor(Math.random() * -length - length);
+                      lineToCordY = moveToCordY + Math.floor(Math.random() * -length - length);
+                      break;
+                }
+                // combinatronics need any combo of plus, minus, etc
+                // var lineToCordX;
+                // var lineToCordY;
+                // if (Math.floor(Math.random() * 2) == 0) {
+                //   lineToCordX = moveToCordX + Math.floor(Math.random() * -length - length);
+                //   lineToCordY = moveToCordY + Math.floor(Math.random() * -length - length);
+                // }
+                // else {
+                //   lineToCordX = moveToCordX - Math.floor(Math.random() * -length - length);
+                //   lineToCordY = moveToCordY - Math.floor(Math.random() * -length - length);
+                //
+                // }
 
                 context.beginPath();
                 context.moveTo(moveToCordX,moveToCordY);
@@ -90,7 +134,7 @@ title: Nurbs with collision detection
           }
           draw()
         }
-        drawGrids2(200, 300, 9, 10, ctx2, 100);
+        drawGrids2(200, 300, 9, 10, ctx, 30);
         // startAnimating(0.5);
         </script>
 </div>
