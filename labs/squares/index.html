@@ -86,7 +86,6 @@ title: Squares
 
     <canvas id="canvas-2" width="640" height="980"></canvas>
     <p>With added quadraticCurves</p>
-
       <script>
 
         if ( !window.requestAnimationFrame ) {
@@ -106,12 +105,12 @@ title: Squares
         var c2=document.getElementById("canvas-2");
         var ctx2=c2.getContext("2d");
         var maxHeight = 1080;
-        // function startAnimating(fps) {
-        //     fpsInterval = 1000 / fps;
-        //     then = Date.now();
-        //     startTime = then;
-        //     drawGrids(200, 300, 9, 10, ctx, true);
-        // }
+        function startAnimating2(fps) {
+            fpsInterval = 1000 / fps;
+            then = Date.now();
+            startTime = then;
+            drawGrids2(200, 300, 9, 10, ctx2, true);
+        }
         function drawGrids2(width, height, number, padding = 50, context, interval) {
             console.log("drawgrids called")
             var maxWidth = 630;
@@ -159,7 +158,7 @@ title: Squares
           draw()
         }
         drawGrids2(200, 300, 9, 10, ctx2, false);
-        // startAnimating(0.5);
+        // startAnimating2(0.5);
         </script>
 
 </div>

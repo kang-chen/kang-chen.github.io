@@ -7,7 +7,6 @@ title: Squares
   <canvas id="myCanvas"></canvas>
   <p>Binary particles</p>
   <script>
-
     if ( !window.requestAnimationFrame ) {
 
       window.requestAnimationFrame = ( function() {
@@ -27,12 +26,6 @@ title: Squares
     var maxHeight = 1080
     ctx.canvas.width  = window.innerWidth;
     ctx.canvas.height = window.innerHeight - 200;
-    // function startAnimating(fps) {
-    //     fpsInterval = 1000 / fps;
-    //     then = Date.now();
-    //     startTime = then;
-    //     drawGrids(200, 300, 9, 10, ctx, true);
-    // }
     function drawGrids(width, height, number, padding = 50, context, interval) {
         console.log("drawgrids called")
         var maxWidth = 630;
@@ -64,6 +57,6 @@ title: Squares
 
     drawGrids(5, 5, 5000, 10, ctx, false);
     // startAnimating(0.5);
-    </script>
+  </script>
 
 </div>

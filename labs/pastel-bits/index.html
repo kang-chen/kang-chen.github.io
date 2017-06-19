@@ -1,0 +1,48 @@
+---
+layout: default
+title: Micro Squares
+---
+
+<canvas id="myCanvas" width="640" height="980"></canvas>
+<script>
+  var c=document.getElementById("myCanvas");
+  var ctx=c.getContext("2d");
+  var maxWidth = 1080
+  var maxHeight = 1080
+
+  var animationFrame;
+  function drawGrids(width, height, number, padding = 50, context) {
+    var maxWidth = 840;
+    var newWidth = padding;
+    var newHeight = padding;
+    for ( i = 0; i < number; i++ ) {
+      // Light pastels
+      var r = Math.floor((Math.random() * 255) + 155);
+      var g = Math.floor((Math.random() * 255) + 155);
+      var b = Math.floor((Math.random() * 255) + 155);
+      context.fillStyle = `rgb(${~~r},${~~g},${~~b})`
+      context.fillRect(newWidth, newHeight, width, height)
+      newWidth += (width+padding)
+      if (newWidth > maxWidth) {
+        newHeight += (height + padding);
+        newWidth = padding;
+      }
+
+    }
+
+    animationFrame = requestAnimationFrame(function() { drawGrids(5, 5, 10000, 2, ctx) });
+  }
+
+  // large
+  // drawGrids(200, 300, 15, 50, ctx)
+  // sparse
+  // drawGrids(5, 5, 10000, 50, ctx)
+  // dense
+  //
+  // drawGrids(5, 5, 10000, 2, ctx)
+
+  // works but extremely slow
+
+  animationFrame = requestAnimationFrame(function() { drawGrids(5, 5, 10000, 2, ctx) });
+
+</script>

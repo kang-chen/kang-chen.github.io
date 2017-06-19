@@ -2,47 +2,81 @@
 layout: default
 title: Home
 ---
-<div class="about">
-  <p>Hi, my name is Kang. I'm a developer located in London, primarily focused on the front-end of the web.</p>
-  <p>In my spare time I enjoy creating experiments in graphics and visual arts which can be found in <a href="/projects">projects</a>.</p>
-  <p>My latest collaboration is <a href="https://github.com/kang-chen/sketch-export-generator" target="_blank">Sketch Export Generator</a>, a plugin for <a href="https://www.sketchapp.com/" target="_blank">Sketch</a> which helps developers and designers export assets for iOS and Android.</p>
-  <p>Previously I've helped build and maintain the task outsourcing platform <a href="http://www.airtasker.com" target="_blank">Airtasker</a>.</p>
-  <p>Prior to that, making apps and sites at <a href="https://www.squiz.net/" target="_blank">Squiz</a>.</p>
-  <p>Read about javascript development processes on my <a href="/blog">blog</a>.</p>
-  <p class="email">If you would like to get in touch, my email address is mail [at] kangchen.me</p>
-</div>
-<!-- <nav>
-  <ul>
-    <li><a href="/about/">About</a></li>
-  </ul>
-</nav> -->
-<div class="learnings">
-  <p>The following are the software languages, web frameworks and design patterns which I'm most familiar with:</p>
-  <ul>
-    <li>Javascript (ES6)</li>
-    <li>Coffeescript</li>
-    <li>React, Backbone, Angular (frameworks)</li>
-    <li>Node JS</li>
-    <li>CSS, SCSS, LESS, Sylus</li>
-    <li>Unit tests and automated testing using Jest, Webdriver, Selenium</li>
-    <li>SEO/SEM</li>
-  </ul>
-</div>
-<p class="center">This site is currently running on Jekyll (ping me if you know of a javascript equivalent)</p>
-<p class="center">Elsewhere on the web:</p>
-<div class="social-links">
-  <!-- <a href="http://codepen.io/kang/" target="_blank">
-    <img class="codepen" src="/images/codepen-text-logo.png", alt="codepen logo">
-  </a>
-  -->
-  <!--
-  <a href="https://twitter.com/kanghongchen" class="twitter-follow-button" data-show-count="false">Follow @kanghongchen</a>
-  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-  -->
-  <a href="https://github.com/kang-chen" target="_blank">
-    <img class="github" srcset="/images/github-logo.png 2x" alt="github logo">
-  </a>
-  <a href="https://twitter.com/_kangchen" target="_blank">
-    <img class="twitter" srcset="/images/twitter-logo.png 2x" alt="twitter logo">
-  </a>
+
+<div class="home-container">
+    <canvas id="canvas-2" width="640" height="980"></canvas>
+      <script>
+
+        if ( !window.requestAnimationFrame ) {
+
+          window.requestAnimationFrame = ( function() {
+            return window.webkitRequestAnimationFrame ||
+            window.mozRequestAnimationFrame ||
+            window.oRequestAnimationFrame ||
+            window.msRequestAnimationFrame ||
+            function( /* function FrameRequestCallback */ callback, /* DOMElement Element */ element ) {
+              window.setTimeout( callback, 1000 / 60 );
+            };
+
+          } )();
+        }
+
+        var c2=document.getElementById("canvas-2");
+        var ctx2=c2.getContext("2d");
+        var maxHeight = 1080;
+        function startAnimating2(fps) {
+            fpsInterval = 1000 / fps;
+            then = Date.now();
+            startTime = then;
+            drawGrids2(200, 300, 9, 10, ctx2, true);
+        }
+        function drawGrids2(width, height, number, padding = 50, context, interval) {
+            console.log("drawgrids called")
+            var maxWidth = 630;
+            var newWidth = padding;
+            var newHeight = padding;
+
+            function draw() {
+              for ( i = 0; i < number; i++ ) {
+                // Light pastels
+                var r = Math.floor((Math.random() * 255) + 155);
+                var g = Math.floor((Math.random() * 255) + 155);
+                var b = Math.floor((Math.random() * 255) + 155);
+                // var r = Math.floor((Math.random() * 155) + 1);
+                // var g = Math.floor((Math.random() * 5) + 1);
+                // var b = Math.floor((Math.random() * 255) + 1);
+                context.fillStyle = `rgb(${~~r},${~~g},${~~b})`
+                context.fillRect(newWidth, newHeight, width, height)
+                newWidth += (width+padding)
+                if (newWidth > maxWidth) {
+                  newHeight += (height + padding);
+                  newWidth = padding;
+                }
+              }
+
+              quadNumber = 6
+              strokeWidth = 10
+              strokeColor = "#424242"
+              // context.clearRect(0, 0, c.width, c.height)
+              for ( i = 0; i < number; i++ ) {
+                var moveToCordX = Math.floor((Math.random() * maxWidth) + 1);
+                var moveToCordY = Math.floor((Math.random() * maxHeight) + 1);
+                var lineToCordX = Math.floor((Math.random() * maxWidth) + 1);
+                var lineToCordY = Math.floor((Math.random() * maxHeight) + 1);
+                context.beginPath();
+                context.moveTo(moveToCordX,moveToCordY);
+                var curveRegionX = Math.floor((Math.random() * -maxWidth) + maxWidth);
+                var curveRegionY = Math.floor((Math.random() * -maxHeight) + maxHeight);
+                context.quadraticCurveTo(curveRegionX,curveRegionY,lineToCordX,lineToCordY);
+                context.lineWidth=strokeWidth;
+                context.strokeStyle=strokeColor;
+                context.stroke();
+                context.closePath();
+              }
+          }
+          draw()
+        }
+        drawGrids2(200, 300, 9, 10, ctx2, false);
+        // startAnimating2(0.5);
+        </script>
 </div>
