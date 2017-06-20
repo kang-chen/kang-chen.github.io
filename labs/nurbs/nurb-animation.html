@@ -59,12 +59,12 @@ title: Nurbs with collision detection
           startTime = then;
           drawQuads(ctx, true);
       }
+
       function initializeQuads(width, height, number, padding = 50, context, interval, length) {
         console.log("drawQuads called")
         var maxWidth = 630;
         var newWidth = padding;
         var newHeight = padding;
-
 
         function collision() {
           //store array co-ordinates of all quadratic curves
@@ -149,16 +149,22 @@ title: Nurbs with collision detection
       function drawQuads(context, interval) {
 
         function draw() {
-          console.log("draw called", currentQuadraticCurves)
           for(i = 0; i < currentQuadraticCurves.length; i++) {
-            var moveToCordX = currentQuadraticCurves[i].a.x++;
-            var moveToCordY = currentQuadraticCurves[i].a.y++;
+            var bool1 = Math.random() >= 0.5;
+            var moveToCordX = (bool1 ? currentQuadraticCurves[i].a.x++ : currentQuadraticCurves[i].a.x--)
+            var bool2 = Math.random() >= 0.5;
+            var moveToCordY = (bool1 ? currentQuadraticCurves[i].a.y++ : currentQuadraticCurves[i].a.y--)
 
-            var curveRegionX = currentQuadraticCurves[i].b.x++;
-            var curveRegionY = currentQuadraticCurves[i].b.y++;
+            var bool3 = Math.random() >= 0.5;
+            var curveRegionX = (bool3 ? currentQuadraticCurves[i].b.x++ : currentQuadraticCurves[i].b.x--)
+            var bool4 = Math.random() >= 0.5;
+            var curveRegionY = (bool4 ? currentQuadraticCurves[i].b.y++ : currentQuadraticCurves[i].b.y--)
 
-            var lineToCordX = currentQuadraticCurves[i].c.x++;
-            var lineToCordY = currentQuadraticCurves[i].c.y++;
+            var bool5 = Math.random() >= 0.5;
+            var lineToCordX = (bool5 ? currentQuadraticCurves[i].c.x++ : currentQuadraticCurves[i].c.x--)
+
+            var bool6 = Math.random() >= 0.5;
+            var lineToCordY = (bool6 ? currentQuadraticCurves[i].c.y++ : currentQuadraticCurves[i].c.y--)
 
             context.beginPath();
             context.moveTo(moveToCordX, moveToCordY);
@@ -188,6 +194,6 @@ title: Nurbs with collision detection
 
       }
       initializeQuads(200, 300, 9, 10, ctx, true, 30);
-      startAnimating(60);
+      startAnimating(500);
       </script>
 </div>
