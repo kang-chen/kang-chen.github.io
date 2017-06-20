@@ -12,6 +12,9 @@ title: Squares
       var maxHeight = 1080
 
       var animationFrame;
+      var then;
+      var fpsInterval;
+
       function startAnimating(fps) {
           fpsInterval = 1000 / fps;
           then = Date.now();
@@ -59,7 +62,6 @@ title: Squares
               context.closePath();
             }
           }
-
           // drawQuadraticLines(6, 10, "#424242", ctx)
         }
         if (interval) {
@@ -98,7 +100,6 @@ title: Squares
             function( /* function FrameRequestCallback */ callback, /* DOMElement Element */ element ) {
               window.setTimeout( callback, 1000 / 60 );
             };
-
           } )();
         }
 
