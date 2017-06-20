@@ -1,0 +1,197 @@
+---
+layout: default
+title: Nurbs with collision detection
+---
+
+<div class="labs-container">
+
+    <canvas id="canvas" width="640" height="640"></canvas>
+    <p>Algo for random points in a 2D space</p>
+    <p>You have four points in a 2D space</p>
+    <p>Your starting point begins at co-ordinates 20,20 which means that</p>
+    <!-- <svg viewBox="0 0 100 100" class="twisty">
+      <use xlink:href="../../images/twisty.svg"></use>
+    </svg> -->
+    <!-- <object type="image/svg+xml" data="../../images/twisty.svg" class="twisty">
+      Skull
+    </object> -->
+
+    <script>
+      if ( !window.requestAnimationFrame ) {
+
+        window.requestAnimationFrame = ( function() {
+          return window.webkitRequestAnimationFrame ||
+          window.mozRequestAnimationFrame ||
+          window.oRequestAnimationFrame ||
+          window.msRequestAnimationFrame ||
+          function( /* function FrameRequestCallback */ callback, /* DOMElement Element */ element ) {
+            window.setTimeout( callback, 1000 / 60 );
+          };
+
+        } )();
+      }
+      var c=document.getElementById("canvas");
+      var ctx=c.getContext("2d");
+      var maxHeight = 1080;
+
+      var grd=ctx.createLinearGradient(0,0,ctx.canvas.width, ctx.canvas.height);
+      grd.addColorStop(0, "rgb(255,0,255)" );
+      grd.addColorStop(1, "rgb(0,255,90)" );
+
+      ctx.fillStyle=grd;
+
+      ctx.fillRect(0,0,window.innerWidth,window.innerHeight);
+
+      // var img = new Image();
+      // img.onload = function() {
+      //     ctx.drawImage(img, 0, 0, 300, 400);
+      // }
+      // img.src = "../../images/twisty.svg";
+
+
+      var drawGrid = function(ctx, w, h, step) {
+        ctx.beginPath();
+        for (var x=0;x<=w;x+=step) {
+                ctx.moveTo(x, 0);
+                ctx.lineTo(x, h);
+        }
+        // set the color of the line
+        ctx.strokeStyle = 'white';
+        ctx.lineWidth = 1;
+        // the stroke will actually paint the current path
+        ctx.stroke();
+        // for the sake of the example 2nd path
+        ctx.beginPath();
+        for (var y=0;y<=h;y+=step) {
+                ctx.moveTo(0, y);
+                ctx.lineTo(w, y);
+        }
+        // set the color of the line
+        ctx.strokeStyle = 'white';
+        // just for fun
+        ctx.lineWidth = 1;
+        // for your original question - you need to stroke only once
+        ctx.stroke();
+      }
+
+      drawGrid(ctx, 640, 980, 15);
+
+      var animationFrame;
+
+      var then;
+      var fpsInterval;
+      var animationFrame;
+
+      function startAnimating(fps) {
+          fpsInterval = 1000 / fps;
+          then = Date.now();
+          startTime = then;
+          drawQuads(200, 300, 9, 10, ctx, true);
+      }
+
+      function drawQuads(width, height, number, padding = 50, context, interval, length) {
+          console.log("drawQuads called")
+          var maxWidth = 630;
+          var newWidth = padding;
+          var newHeight = padding;
+          var currentQuadraticCurves = [];
+
+          function collision() {
+            //store array co-ordinates of all quadratic curves
+            // if the curve is within boundaries of previous curves
+            // shift and recalculate
+
+            for (i=0; i <= currentQuadraticCurves.length; i++) {
+              // determine all variations of x and y co-ord
+            }
+          }
+
+          function switchQuadrant() {
+
+          }
+
+          function draw() {
+
+            // context.clearRect(0, 0, c.width, c.height)
+            for ( i = 0; i < number; i++ ) {
+              var moveToCordX = Math.floor((Math.random() * maxWidth) + 1);
+              var moveToCordY = Math.floor((Math.random() * maxHeight) + 1);
+              // var lineToCordX = moveToCordX + Math.floor(Math.random() * -3 - 3);
+              // var lineToCordY = moveToCordY + Math.floor(Math.random() * -3 - 3);
+              var lineToCordX;
+              var lineToCordY;
+
+              var quadNumber = Math.floor(Math.random() * 4) + 1;
+
+              switch(quadNumber) {
+                case 1:
+                    lineToCordX = moveToCordX + Math.floor(Math.random() * -length - length);
+                    lineToCordY = moveToCordY + Math.floor(Math.random() * -length - length);
+                    break;
+                case 2:
+                    lineToCordX = moveToCordX + Math.floor(Math.random() * -length - length);
+                    lineToCordY = moveToCordY - Math.floor(Math.random() * -length - length);
+                    break;
+                case 3:
+                    lineToCordX = moveToCordX - Math.floor(Math.random() * -length - length);
+                    lineToCordY = moveToCordY - Math.floor(Math.random() * -length - length);
+                    break;
+                case 4:
+                    lineToCordX = moveToCordX - Math.floor(Math.random() * -length - length);
+                    lineToCordY = moveToCordY + Math.floor(Math.random() * -length - length);
+                    break;
+                default:
+                    lineToCordX = moveToCordX + Math.floor(Math.random() * -length - length);
+                    lineToCordY = moveToCordY + Math.floor(Math.random() * -length - length);
+                    break;
+              }
+
+              context.beginPath();
+              context.moveTo(moveToCordX,moveToCordY);
+              var curveRegionX = moveToCordX + Math.floor(Math.random() * -200 - 2);
+              var curveRegionY = moveToCordY + Math.floor(Math.random() * -200 - 2);
+              context.quadraticCurveTo(curveRegionX,curveRegionY,lineToCordX,lineToCordY);
+              currentQuadraticCurves.push({
+                a : {
+                  x: moveToCordX,
+                  y: moveToCordY
+                },
+                b: {
+                  x: curveRegionX,
+                  y: curveRegionY
+                },
+                c: {
+                  x: lineToCordX,
+                  y: lineToCordY
+                }
+              })
+              context.lineWidth=10;
+              // context.strokeStyle="#fefefe";
+              context.strokeStyle="black";
+              // context.strokeStyle = 'rgba(0,' + '0,' + moveToCordY + ', 0.2)';
+              // context.strokeStyle = 'rgb('+ lineToCordY+','+lineToCordX + ',0' + ')';
+              context.stroke();
+              context.closePath();
+            }
+        }
+        if (interval) {
+          animationFrame = requestAnimationFrame(function() {
+            drawQuads(200, 300, 9, 10, ctx, true, 30)
+          });
+          now = Date.now();
+          elapsed = now - then;
+          if (elapsed > fpsInterval) {
+            then = now - (elapsed % fpsInterval);
+            context.clearRect(0, 0, c.width, c.height)
+            draw()
+          }
+        }
+        else {
+          draw()
+        }
+
+      }
+      drawQuads(200, 300, 9, 10, ctx, true, 30);
+      startAnimating(0.5);
+      </script>
+</div>
