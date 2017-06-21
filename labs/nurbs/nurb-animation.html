@@ -5,7 +5,6 @@ title: Nurbs with collision detection
 
 <div class="labs-container">
     <canvas id="canvas" width="640" height="640"></canvas>
-
     <!-- <p>Algo for random points in a 2D space</p>
     <p>You have four points in a 2D space</p>
     <p>Your starting point begins at co-ordinates 20,20 which means that</p> -->
@@ -15,7 +14,6 @@ title: Nurbs with collision detection
     <!-- <object type="image/svg+xml" data="../../images/twisty.svg" class="twisty">
       Skull
     </object> -->
-
     <script>
       if ( !window.requestAnimationFrame ) {
 
@@ -34,15 +32,11 @@ title: Nurbs with collision detection
       var c=document.getElementById("canvas");
       var ctx=c.getContext("2d");
       var maxHeight = 1080;
-
-
-
       // var img = new Image();
       // img.onload = function() {
       //     ctx.drawImage(img, 0, 0, 300, 400);
       // }
       // img.src = "../../images/twisty.svg";
-
       var animationFrame;
       var then;
       var fpsInterval;
@@ -63,8 +57,6 @@ title: Nurbs with collision detection
       }
 
       function initializeQuads(width, height, number, padding = 50, context, interval, length) {
-
-        console.log("drawQuads called")
         var maxWidth = 630;
         var newWidth = padding;
         var newHeight = padding;
@@ -147,10 +139,8 @@ title: Nurbs with collision detection
           // context.strokeStyle = 'rgb('+ lineToCordY+','+lineToCordX + ',0' + ')';
           context.stroke();
           context.closePath();
-      }
-      }
+      }}
       function drawQuads(context, interval, directionalBooleans) {
-
         function draw() {
           // write grid
           var grd=ctx.createLinearGradient(0,0,ctx.canvas.width, ctx.canvas.height);
@@ -159,9 +149,16 @@ title: Nurbs with collision detection
           ctx.fillStyle=grd;
           ctx.fillRect(0,0,window.innerWidth,window.innerHeight);
 
+          function generateBoolean() {
+            var directionalBooleans = [];
+            for (i=0; i < 6; i++) {
+              directionalBooleans.push(Math.random() >= 0.5);
+            }
+          }
+
           // define direction
           for(i = 0; i < currentQuadraticCurves.length; i++) {
-
+            //generateBool
             var moveToCordX = (directionalBooleans[0] ? currentQuadraticCurves[i].a.x++ : currentQuadraticCurves[i].a.x--)
             var moveToCordY = (directionalBooleans[1] ? currentQuadraticCurves[i].a.y++ : currentQuadraticCurves[i].a.y--)
 
@@ -181,7 +178,6 @@ title: Nurbs with collision detection
           }
         }
 
-
         if (interval) {
           animationFrame = requestAnimationFrame(function() {
             drawQuads(ctx, true, directionalBooleans)
@@ -200,6 +196,6 @@ title: Nurbs with collision detection
 
       }
       initializeQuads(200, 300, 9, 10, ctx, true, 30);
-      startAnimating(60);
+      startAnimating(24);
       </script>
 </div>
