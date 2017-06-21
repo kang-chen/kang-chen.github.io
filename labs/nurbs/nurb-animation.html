@@ -133,13 +133,14 @@ title: Nurbs with collision detection
             }
           })
           context.lineWidth=10;
-          // context.strokeStyle="#fefefe";
-          context.strokeStyle="black";
+          context.strokeStyle="#fefefe";
+          // context.strokeStyle="black";
           // context.strokeStyle = 'rgba(0,' + '0,' + moveToCordY + ', 0.2)';
           // context.strokeStyle = 'rgb('+ lineToCordY+','+lineToCordX + ',0' + ')';
           context.stroke();
           context.closePath();
       }}
+
       function drawQuads(context, interval, directionalBooleans) {
         function draw() {
           // write grid
@@ -172,7 +173,7 @@ title: Nurbs with collision detection
             context.moveTo(moveToCordX, moveToCordY);
             context.quadraticCurveTo(curveRegionX,curveRegionY,lineToCordX,lineToCordY);
             context.lineWidth=10;
-            context.strokeStyle="black";
+            context.strokeStyle="#fefefe";
             context.stroke();
             context.closePath();
           }
