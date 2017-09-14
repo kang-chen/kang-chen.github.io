@@ -1,0 +1,96 @@
+
+<html>
+<body>
+  <div class="labs-container">
+    <canvas id="myCanvas"></canvas>
+    <script>
+      if ( !window.requestAnimationFrame ) {
+        window.requestAnimationFrame = ( function() {
+          return window.webkitRequestAnimationFrame ||
+          window.mozRequestAnimationFrame ||
+          window.oRequestAnimationFrame ||
+          window.msRequestAnimationFrame ||
+          function( /* function FrameRequestCallback */ callback, /* DOMElement Element */ element ) {
+            window.setTimeout( callback, 1000 / 60 );
+          };
+        } )();
+      }
+
+      var c=document.getElementById("myCanvas");
+      var ctx=c.getContext("2d");
+      ctx.imageSmoothingEnabled = true;
+      var maxHeight = 1080;
+      ctx.canvas.width  = window.innerWidth;
+      ctx.canvas.height = window.innerHeight - 200;
+      ctx.lineWidth = 2;
+      // ctx.strokeStyle = "#0096FF";
+      ctx.strokeStyle = "#000000";
+      var startX = 85;
+      var startY = 70;
+      var zigzagSpacing = 60;
+
+      function drawZigZag(ctx, startX, startY, spacing, height) {
+        console.log('draw drawZigZag called');
+
+        ctx.beginPath();
+
+        ctx.moveTo(startX, startY);
+        // draw seven lines
+        for (var n = 0; n < 7; n++) {
+          var x = startX + ((n + 1) * spacing);
+          var y;
+
+          if (n % 2 == 0) { // if n is even...
+            y = startY + height;
+          }
+          else {
+            y = startY;
+          }
+          ctx.lineTo(x, y);
+        }
+
+        ctx.stroke();
+
+      }
+
+      /**
+      * This is a description
+      * @namespace My.Namespace
+      * @param {bool} direction for left or right
+      * @return {bool} some bool
+      */
+      function drawDash(startX, startY, direction) {
+
+        var moveX = startX;
+
+        if (direction) {
+          moveX += 10;
+        } else {
+          moveX -= 10;
+        }
+
+        for (var n = 0; n < 7; n++) {
+          ctx.moveTo(moveX, startY);
+          ctx.lineTo(moveX + 50, startY + 50);
+          ctx.stroke();
+        }
+
+        startY += 80;
+        startX += 50;
+
+        for (var n = 0; n < 7; n++) {
+          ctx.moveTo(moveX, startY);
+          ctx.lineTo(moveX - 50, startY + 50);
+          ctx.stroke();
+        }
+
+      }
+
+      drawZigZag(ctx, startX, startY, zigzagSpacing, 200);
+      drawZigZag(ctx, startX+50, startY+50, zigzagSpacing, 80);
+      drawDash(startX, startY);
+
+    </script>
+  </div>
+</body>
+<html>
