@@ -2,7 +2,7 @@ exclude: [vendor]
 permalink: /blog/:title
 # Setup
 title:               Kang Chen
-tagline:             Developer
+tagline:             ""
 name: 'Kang Chen'
 description: 'you'
 url:                 http://kangchen.me
