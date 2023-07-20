@@ -4,14 +4,14 @@ title: A case for firebase, back-endless boilerplate
 published: true
 ---
 
-There are many choices these days if you want to start an app, depending on your business requirements, development time constraints and other factors.
+There are many decisions to make these days when you want to commence a web app, depending on your business requirements, development time constraints and other factors.
 
-As much as I love the idea of a decoupled front-end and back-end app. I don't particularly enjoy the thought of learning rails, maintaining two separate apps, building an API, performing SQL migrations, etc ec.
+As much as I love the idea of a decoupled front-end and back-end app. I don't particularly enjoy the thought of learning rails, maintaining two separate codebases, building an API, performing SQL migrations, etc etc.
 
-By using [Firebase](https://www.firebase.com/) as a back-end we have a more intuitive method of maintaining a database and a simple API.
+If you have seed funds and are able to hire people to maintain two separate applications, go for it but for the rest of us chumps who need to do things by themselves going back-endless really shaves off some development efforts.
 
-Presently it can take days to setup an environment, this can be very frustrating if you're not proficient at basic computer science. Gulpfiles are becoming ridiculous in complexity.
+By using [Firebase](https://www.firebase.com/) as a substitute for a back-end we have a more intuitive method of maintaining a database and a simple API.
+
+Presently it can take days to setup an environment, Gulpfiles are becoming so ridiculous in complexity web developers now need to know the basics of computer science to be able to build a basic website.
 
 Download this [boilerplate](https://github.com/kang-chen/react-firebase-gulp) and get started in a couple of minutes.
-
-*note there are many variations on the React/Firebase boilerplate. Not saying this is the be all end all of boilerplates, but it certainly helps with getting started.
