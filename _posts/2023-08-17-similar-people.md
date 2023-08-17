@@ -8,4 +8,4 @@ Yes, someone out there has the exact same CV as you.
 
 You consume the same media, watch the same television shows, listen to the same music, and read the same books.
 
-What is the purpose of this post? I believe that niche products work in the long term. I will be experimenting, and this belief could be proven right or wrong.
+What is the purpose of this post? I believe that [niche](https://dev.factorymint.com) products work in the long term. I will be experimenting, and this belief could be proven right or wrong.
