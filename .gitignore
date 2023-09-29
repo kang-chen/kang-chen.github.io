@@ -1,13 +1,7 @@
-# OS generated files #
-######################
+_site
+.sass-cache
+.jekyll-cache
+.jekyll-metadata
+vendor
 .DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
-
-node_modules/
-server/
-_site/
+**/*/.DS_Store
